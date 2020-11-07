@@ -3,4 +3,4 @@ Heal player when eating.
 
 # Features
 - Custom health heal. You can customize in config
-- Permission for plugin (TODO)
+- Permission for plugin (PERM: brokiem.eat.heal)
