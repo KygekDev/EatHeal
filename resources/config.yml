@@ -1,0 +1,4 @@
+---
+# Amount of health to be added when player eats
+healing: 3
+...

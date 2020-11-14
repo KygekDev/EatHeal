@@ -7,11 +7,11 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\event\entity\EntityRegainHealthEvent;
 use pocketmine\event\player\PlayerItemConsumeEvent;
-use pocketmine\utils\Config;
 
 class Main extends PluginBase implements Listener {
 
   public function onEnable() {
+    $this->saveDefaultConfig();
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
   }
 
@@ -28,11 +28,9 @@ class Main extends PluginBase implements Listener {
 
   public function onConsume(PlayerItemConsumeEvent $event){
     $player = $event->getPlayer();
-    $cfg = new Config($this->getDataFolder() . "config.yml", Config::YAML, array(
-      "healing" => 3
-    ));
-    if($player->hasPermission("eatheal.use") {
-      $player->setHealth($player->getHealth() + (int) $cfg->get("healing"));
+    if($player->hasPermission("eatheal.use")) {
+      $player->setHealth($player->getHealth() + $this->getConfig()->get("healing", 3));
     }
   }
+
 }
