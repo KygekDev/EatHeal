@@ -3,3 +3,8 @@ main: brokiem\EatHeal\Main
 api: 3.0.0
 version: 1.2-BETA
 author: brokiem
+
+permissions:
+  eatheal.use:
+    description: Heal player while eating
+    default: op

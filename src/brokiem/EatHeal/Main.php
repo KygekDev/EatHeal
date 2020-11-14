@@ -18,7 +18,7 @@ class Main extends PluginBase implements Listener {
   public function onHeal(EntityRegainHealthEvent $event){
     $entity = $event->getEntity();
     if($entity instanceof Player) {
-      if($entity->hasPermission("brokiem.eat.heal") {
+      if($entity->hasPermission("eatheal.use")) {
         if($event->getRegainReason() === EntityRegainHealthEvent::CAUSE_SATURATION){
           $event->setCancelled();
         }
@@ -31,7 +31,7 @@ class Main extends PluginBase implements Listener {
     $cfg = new Config($this->getDataFolder() . "config.yml", Config::YAML, array(
       "healing" => 3
     ));
-    if($player->hasPermission("brokiem.eat.heal") {
+    if($player->hasPermission("eatheal.use") {
       $player->setHealth($player->getHealth() + (int) $cfg->get("healing"));
     }
   }
